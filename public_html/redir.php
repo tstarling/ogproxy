@@ -50,13 +50,13 @@ function showMangledHtml( $target, $referer, $config ) {
     if ( !$doc->loadHTML( $body ) ) {
         redirError( "Can't parse HTML" );
     }
-    echo "<!DOCTYPE html\n";
+    echo "<!DOCTYPE html>\n";
     $xpath = new \DOMXPath( $doc );
     echo "<html lang=\"en\">\n";
     echo "<head>\n";
-    $title = $xpath->evaluate( '//head/title[0]/child::text()' );
-    if ( $title ) {
-        echo "<title>" . htmlspecialchars( $title ) . "</title>\n";
+    $titles = $xpath->query( '//head/title' );
+    foreach ( $titles as $title ) {
+        echo "<title>" . htmlspecialchars( $title->textContent ) . "</title>\n";
     }
     $metas = $xpath->query( '//head/meta' );
     if ( $metas ) {

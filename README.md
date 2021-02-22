@@ -1,14 +1,14 @@
 A redirection/proxy service for hiding news links from Facebook so that they
 can be posted in Australia.
 
-== Requirements ==
+## Requirements
 
 * PHP 7.2+
 * Composer
 * Memcached
 * The memcached PHP extension
 
-== Installation ==
+## Installation
 
 Get the code. I used Composer just for its autoloader, I didn't actually use
 any dependencies. Install the autoloader with:
@@ -34,7 +34,7 @@ Set up your webserver with appropriate aliases, e.g.
 
 Modify `proxy-url` and `redir-url` accordingly in config.php.
 
-== Configuration ==
+## Configuration
 
 Enter a list of allowed hosts in `allowed-hosts` in config.php. The domain
 whitelist is necessary to prevent abuse which would potentially lead to the
@@ -43,7 +43,7 @@ host being blocked.
 The domain names should include the main website, and also the domain used in
 the og:image meta tags.
 
-== Using ==
+## Using
 
 Navigate to index.php. Enter a URL. You get back a URL which can be posted to
 Facebook.

@@ -3,9 +3,17 @@
 namespace ogproxy;
 
 class Fetcher {
+    private $host;
+    private $port;
+
+    public function __construct( $host, $port ) {
+        $this->host = $host;
+        $this->port = $port;
+    }
+
     public function fetch( $url, $referer ) {
         $memcached = new \Memcached;
-        $memcached->addServer( 'localhost', 11211 );
+        $memcached->addServer( $this->host, $this->port );
         $key = "ogproxy:fetch:" . md5( $url );
         $entry = $memcached->get( $key );
         if ( $entry === false ) {

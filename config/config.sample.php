@@ -7,4 +7,6 @@ return [
         'static.ffx.io',
         'www.smh.com.au'
     ],
+    'memcached-host' => 'localhost',
+    'memcached-port' => 11211,
 ];
